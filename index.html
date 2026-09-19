@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AptiQuest - Mind Challenge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- =====================================================
+     HOME SCREEN
+===================================================== -->
+<div id="homeScreen" class="screen">
+
+    <header class="header">
+        <div class="logo">🧠 AptiQuest</div>
+        <div class="stats">
+            <span>⭐ <b id="xp">0</b> XP</span>
+            <span>🪙 <b id="coins">0</b></span>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="character">🧑‍🚀</div>
+        <div class="hero-text">
+            <h1>Welcome to AptiQuest!</h1>
+            <p id="welcomeMessage">Your brain adventure starts here.</p>
+            <button type="button" onclick="showAgeScreen()">🚀 Start Quest</button>
+        </div>
+    </section>
+
+    <h2 class="section-title">🗺️ Quest Map</h2>
+
+    <div class="level-map">
+        <button id="level1" class="level unlocked" type="button" onclick="startLevel(1)">
+            <span>1</span>
+            <small>Starter</small>
+        </button>
+        <div class="line"></div>
+
+        <button id="level2" class="level locked" type="button" onclick="tryLevel(2)">
+            <span>🔒</span>
+            <small>Logic</small>
+        </button>
+        <div class="line"></div>
+
+        <button id="level3" class="level locked" type="button" onclick="tryLevel(3)">
+            <span>🔒</span>
+            <small>Numbers</small>
+        </button>
+        <div class="line"></div>
+
+        <button id="level4" class="level locked" type="button" onclick="tryLevel(4)">
+            <span>🔒</span>
+            <small>Math</small>
+        </button>
+        <div class="line"></div>
+
+        <button id="level5" class="level locked" type="button" onclick="tryLevel(5)">
+            <span>🔒</span>
+            <small>Speed</small>
+        </button>
+    </div>
+
+    <div class="bottom-buttons">
+        <button type="button" onclick="showLeaderboard()">🏆 Leaderboard</button>
+        <button type="button" onclick="showAchievements()">🎖️ Achievements</button>
+    </div>
+</div>
+
+
+<!-- =====================================================
+     AGE / PLAYER SCREEN
+===================================================== -->
+<div id="ageScreen" class="screen hidden">
+    <div class="card">
+        <h1>🚀 Start Your Quest</h1>
+        <p>Enter your details to begin your adventure.</p>
+
+        <input type="text" id="playerName" placeholder="Enter your name" autocomplete="off">
+        <input type="number" id="playerAge" placeholder="Enter your age" min="5" max="100">
+
+        <p id="errorMessage" class="error"></p>
+
+        <button type="button" onclick="continueGame()">Continue →</button>
+        <button type="button" class="backBtn" onclick="goHome()">← Back</button>
+    </div>
+</div>
+
+
+<!-- =====================================================
+     QUIZ SCREEN
+===================================================== -->
+<div id="quizScreen" class="screen hidden">
+    <div class="quiz-card">
+
+        <div class="quiz-top">
+            <span id="questionNumber">Question 1/5</span>
+            <span>⏱️ <b id="timer">20</b></span>
+            <span>⭐ <b id="gameScore">0</b></span>
+        </div>
+
+        <div class="progress-container">
+            <div id="progress"></div>
+        </div>
+
+        <div class="mini-character">🧑‍🚀</div>
+
+        <h2 id="levelTitle">🌟 Level 1</h2>
+        <h3 id="question">Question</h3>
+
+        <div id="options"></div>
+
+        <button id="clueButton" type="button" onclick="showClue()">💡 Clue</button>
+        <p id="clueText" class="clue-text"></p>
+
+        <button id="nextButton" type="button" onclick="nextQuestion()" disabled>Next →</button>
+    </div>
+</div>
+
+
+<!-- =====================================================
+     RESULT SCREEN
+===================================================== -->
+<div id="resultScreen" class="screen hidden">
+    <div class="card result-card">
+
+        <div id="resultEmoji" class="result-character">🏆</div>
+        <h1 id="resultTitle">Level Complete!</h1>
+        <p id="resultMessage"></p>
+
+        <!-- STAR RATING -->
+        <div class="star-rating" id="starRating"></div>
+        <p id="correctSummary" class="correct-summary"></p>
+
+        <div class="result-stats">
+            <div>
+                <span>⭐</span>
+                <b id="finalScore">0</b>
+                <small>Score</small>
+            </div>
+            <div>
+                <span>💎</span>
+                <b id="finalXP">0</b>
+                <small>XP</small>
+            </div>
+            <div>
+                <span>🪙</span>
+                <b id="finalCoins">0</b>
+                <small>Coins</small>
+            </div>
+        </div>
+
+        <button type="button" onclick="goHome()">🏠 Quest Map</button>
+        <button id="retryButton" type="button" onclick="retryLevel()">🔄 Retry Level</button>
+        <button id="nextLevelButton" type="button" onclick="goToNextLevel()">🚀 Next Level</button>
+    </div>
+</div>
+
+
+<!-- =====================================================
+     LEADERBOARD SCREEN
+===================================================== -->
+<div id="leaderboardScreen" class="screen hidden">
+    <div class="card leaderboard-card">
+        <h1>🌍 Global Leaderboard</h1>
+        <p>Top AptiQuest Players</p>
+
+        <div class="leaderboard-tabs">
+            <button type="button" onclick="showGlobalLeaderboard()">🌍 Global</button>
+            <button type="button" onclick="showJuniorLeaderboard()">🧒 Under 18</button>
+            <button type="button" onclick="showAdultLeaderboard()">🧑 18+</button>
+        </div>
+
+        <div id="leaderboardList"></div>
+
+        <button type="button" onclick="goHome()">← Back</button>
+    </div>
+</div>
+
+
+<!-- =====================================================
+     ACHIEVEMENTS SCREEN
+===================================================== -->
+<div id="achievementScreen" class="screen hidden">
+    <div class="card">
+        <h1>🎖️ Achievements</h1>
+
+        <div class="achievement">
+            🧠
+            <b>First Step</b>
+            <small>Complete Level 1</small>
+        </div>
+
+        <div class="achievement">
+            🔒
+            <b>Logic Master</b>
+            <small>Complete Level 10</small>
+        </div>
+
+        <div class="achievement">
+            🔒
+            <b>Quest Champion</b>
+            <small>Complete Level 50</small>
+        </div>
+
+        <div class="achievement">
+            🔒
+            <b>Grand Master</b>
+            <small>Complete Level 100</small>
+        </div>
+
+        <button type="button" onclick="goHome()">← Back</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

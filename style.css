@@ -1,0 +1,649 @@
+/* =========================================================
+   APTIQUEST - STYLESHEET
+   A cosmic quest theme: deep space background, glowing
+   purple/teal accents, gold for stars & rewards.
+   ========================================================= */
+
+:root {
+    --bg: #0B1026;
+    --panel: #161B3B;
+    --panel-alt: #1F2559;
+    --border: #2A2F63;
+
+    --primary: #7C5CFF;
+    --primary-dark: #5C3FE0;
+    --secondary: #2FE6C7;
+    --gold: #FFC857;
+
+    --text: #EEF1FF;
+    --text-muted: #9AA3C7;
+
+    --success: #35D07F;
+    --danger: #FF5F6D;
+
+    --radius-lg: 22px;
+    --radius-md: 14px;
+    --radius-pill: 999px;
+
+    --font-heading: "Fredoka", sans-serif;
+    --font-body: "Nunito", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 15% 10%, rgba(124, 92, 255, 0.25), transparent 45%),
+        radial-gradient(circle at 85% 0%, rgba(47, 230, 199, 0.18), transparent 40%),
+        var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    display: flex;
+    justify-content: center;
+    padding: 24px 16px 60px;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    margin: 0;
+}
+
+.screen {
+    width: 100%;
+    max-width: 440px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+button {
+    font-family: var(--font-body);
+    cursor: pointer;
+    border: none;
+}
+
+/* HEADER / STATS */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.stats {
+    display: flex;
+    gap: 10px;
+}
+
+.stats span {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.stats b {
+    color: var(--text);
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(160deg, var(--panel), var(--panel-alt));
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 26px 22px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+    box-shadow: 0 12px 30px rgba(124, 92, 255, 0.18);
+}
+
+.character {
+    font-size: 52px;
+    flex-shrink: 0;
+}
+
+.hero-text h1 {
+    font-size: 21px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.hero-text p {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin: 0 0 14px;
+}
+
+.hero-text button {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 11px 20px;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 8px 18px rgba(124, 92, 255, 0.45);
+}
+
+/* SECTION TITLE */
+.section-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin: 0 0 18px 4px;
+}
+
+/* QUEST MAP */
+.level-map {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 26px;
+}
+
+.level {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    background: var(--panel);
+    border: 2px solid var(--border);
+    color: var(--text-muted);
+}
+
+.level span {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.level small {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.level.unlocked {
+    background: linear-gradient(160deg, var(--primary), var(--primary-dark));
+    border-color: var(--primary);
+    color: #fff;
+    box-shadow: 0 0 0 6px rgba(124, 92, 255, 0.15), 0 10px 22px rgba(124, 92, 255, 0.4);
+}
+
+.level.locked {
+    opacity: 0.55;
+}
+
+.line {
+    width: 2px;
+    height: 22px;
+    background: repeating-linear-gradient(
+        to bottom,
+        var(--border) 0 6px,
+        transparent 6px 12px
+    );
+}
+
+/* BOTTOM BUTTONS */
+.bottom-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.bottom-buttons button {
+    flex: 1;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-weight: 700;
+    font-size: 13px;
+    padding: 13px 10px;
+    border-radius: var(--radius-md);
+}
+
+.bottom-buttons button:hover {
+    border-color: var(--secondary);
+}
+
+/* GENERIC CARD */
+.card {
+    background: linear-gradient(160deg, var(--panel), var(--panel-alt));
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.card h1 {
+    font-size: 20px;
+    margin-bottom: 6px;
+}
+
+.card > p {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin: 0 0 20px;
+}
+
+.card input {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 14px;
+    padding: 13px 14px;
+    border-radius: var(--radius-md);
+    margin-bottom: 12px;
+}
+
+.card input:focus {
+    outline: none;
+    border-color: var(--secondary);
+}
+
+.card input::placeholder {
+    color: var(--text-muted);
+}
+
+.error {
+    color: var(--danger);
+    font-size: 13px;
+    min-height: 18px;
+    margin: 0 0 8px;
+}
+
+.card > button {
+    width: 100%;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 13px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 10px;
+}
+
+.card > button.backBtn {
+    background: transparent;
+    color: var(--text-muted);
+    box-shadow: none;
+}
+
+/* QUIZ SCREEN */
+.quiz-card {
+    background: linear-gradient(160deg, var(--panel), var(--panel-alt));
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 22px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.quiz-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+}
+
+.quiz-top b {
+    color: var(--text);
+}
+
+.progress-container {
+    height: 8px;
+    background: var(--bg);
+    border-radius: var(--radius-pill);
+    overflow: hidden;
+    margin-bottom: 18px;
+}
+
+#progress {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--secondary), var(--primary));
+    transition: width 0.35s ease;
+}
+
+.mini-character {
+    text-align: center;
+    font-size: 34px;
+    margin-bottom: 6px;
+}
+
+#levelTitle {
+    text-align: center;
+    font-size: 15px;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+#question {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+#options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.option {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    padding: 13px 16px;
+    border-radius: var(--radius-md);
+}
+
+.option:hover:not(:disabled) {
+    border-color: var(--primary);
+}
+
+.option.correct {
+    background: rgba(53, 208, 127, 0.15);
+    border-color: var(--success);
+    color: var(--success);
+}
+
+.option.wrong {
+    background: rgba(255, 95, 109, 0.15);
+    border-color: var(--danger);
+    color: var(--danger);
+}
+
+.option:disabled {
+    cursor: default;
+}
+
+#clueButton {
+    background: transparent;
+    border: 1px dashed var(--gold);
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 9px 14px;
+    border-radius: var(--radius-pill);
+}
+
+#clueButton:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.clue-text {
+    font-size: 13px;
+    color: var(--gold);
+    min-height: 18px;
+    margin: 10px 0 0;
+}
+
+#nextButton {
+    width: 100%;
+    margin-top: 16px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 13px;
+    border-radius: var(--radius-pill);
+}
+
+#nextButton:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+/* RESULT SCREEN */
+.result-card {
+    text-align: center;
+}
+
+.result-character {
+    font-size: 56px;
+    margin-bottom: 8px;
+}
+
+.result-card h1 {
+    font-size: 20px;
+    margin-bottom: 6px;
+}
+
+.result-card #resultMessage {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin: 0 0 6px;
+}
+
+.star-rating {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    font-size: 26px;
+    margin: 10px 0 4px;
+}
+
+.star-rating .star {
+    filter: drop-shadow(0 0 6px rgba(255, 200, 87, 0.35));
+}
+
+.correct-summary {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin: 0 0 18px;
+}
+
+.result-stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.result-stats > div {
+    flex: 1;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 12px 6px;
+}
+
+.result-stats span {
+    font-size: 18px;
+}
+
+.result-stats b {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 17px;
+    margin: 4px 0 2px;
+}
+
+.result-stats small {
+    color: var(--text-muted);
+    font-size: 11px;
+}
+
+.result-card button {
+    width: 100%;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 13px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 10px;
+}
+
+.result-card button:first-of-type {
+    background: var(--panel-alt);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+#retryButton {
+    background: transparent;
+    border: 1px solid var(--danger);
+    color: var(--danger);
+}
+
+#nextLevelButton {
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    color: #0B1026;
+}
+
+/* LEADERBOARD */
+.leaderboard-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.leaderboard-tabs button {
+    flex: 1;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 9px 4px;
+    border-radius: var(--radius-pill);
+}
+
+.leaderboard-tabs button:hover {
+    color: var(--text);
+    border-color: var(--secondary);
+}
+
+#leaderboardList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+    max-height: 340px;
+    overflow-y: auto;
+}
+
+.player-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 10px 12px;
+}
+
+.player-rank {
+    width: 26px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--gold);
+}
+
+.player-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.player-info b {
+    font-size: 13px;
+}
+
+.player-info small {
+    color: var(--text-muted);
+    font-size: 11px;
+}
+
+.player-score {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+}
+
+.leaderboard-card > button:last-child {
+    width: 100%;
+    background: var(--panel-alt);
+    color: var(--text);
+    border: 1px solid var(--border);
+    font-weight: 700;
+    padding: 12px;
+    border-radius: var(--radius-pill);
+}
+
+/* ACHIEVEMENTS */
+.achievement {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 14px;
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.achievement b {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 14px;
+}
+
+.achievement small {
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+#achievementScreen .card > button:last-child {
+    width: 100%;
+    background: var(--panel-alt);
+    color: var(--text);
+    border: 1px solid var(--border);
+    font-weight: 700;
+    padding: 12px;
+    border-radius: var(--radius-pill);
+    margin-top: 6px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 420px) {
+    body {
+        padding: 16px 12px 50px;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+}
